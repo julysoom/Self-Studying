@@ -54,7 +54,7 @@ url : https://hackernoon.com/introduction-to-recommender-system-part-1-collabora
   * Jaccard index, Tanimato metric usually used for **implicit** data - requires complex calculation for explicit
   
   
-* Pearson v. Cosine
+##### Pearson v. Cosine
 ![image](https://user-images.githubusercontent.com/42960718/57428768-cb066200-7264-11e9-867c-86db437aa40d.png)
 * Pearson
 
