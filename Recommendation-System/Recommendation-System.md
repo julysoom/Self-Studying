@@ -54,7 +54,7 @@ url : https://hackernoon.com/introduction-to-recommender-system-part-1-collabora
   * Jaccard index, Tanimato metric usually used for **implicit** data - requires complex calculation for explicit
   
   
-
+* Pearson v. Cosine
 ![image](https://user-images.githubusercontent.com/42960718/57428768-cb066200-7264-11e9-867c-86db437aa40d.png)
 * Pearson
 
@@ -76,7 +76,7 @@ url : https://hackernoon.com/introduction-to-recommender-system-part-1-collabora
 ### Item-based
 
 ![image](https://user-images.githubusercontent.com/42960718/57466419-91ad1100-72bb-11e9-8f5a-3fdc0971182b.png)
-* *unlike user-based CF, the blanks are filled vertically; shows similarity with "Me Before You*
+* *unlike user-based CF, the blanks are filled vertically; shows similarity with "Me Before You"*
 * *there is only one user that have rated "Titanic" and "Matrix" but they have a similarity of 1 → wrong result since the genre of the two movies are completely different*
 * measures the similarity b/t the **items** that target user has **rated/interacted** with other items
 * **similar users shares same interests → tends to like similar items**
