@@ -1,9 +1,5 @@
-# Recommendation-System-Notes
-Self notes about recommendation system.
-
-
+# Recommendation-System
 url : https://hackernoon.com/introduction-to-recommender-system-part-1-collaborative-filtering-singular-value-decomposition-44c9659c5e75
-
 ## Introduction
 ### Recommendation System
 * capable of predicting future preference of a set of items for a user
