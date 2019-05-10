@@ -139,8 +139,8 @@ s
 # result
 array([2.75193379, 5.6059665])
 ```
-**pro** : SVD handles scalability and sparsity posed by CF
-**con** : there almost no explanation how the recommendation result have came out (can't draw why such item was recommended to the user) → what if the users want to know why such item was recommended to them?
+* **pro** : SVD handles scalability and sparsity posed by CF
+* **con** : there almost no explanation how the recommendation result have came out (can't draw why such item was recommended to the user) → what if the users want to know why such item was recommended to them?
 
   
   
