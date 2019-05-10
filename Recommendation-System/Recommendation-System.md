@@ -1,4 +1,4 @@
-# Recommendation-System
+# Introduction to Recommender System Part 1 (CF, SVD)
 url : https://hackernoon.com/introduction-to-recommender-system-part-1-collaborative-filtering-singular-value-decomposition-44c9659c5e75
 ## Introduction
 ### Recommendation System
@@ -108,10 +108,40 @@ url : https://hackernoon.com/introduction-to-recommender-system-part-1-collabora
   * since we don't know the rating for the unseen items, we will temporarily ignore them
   * only **minimizing RMSE** on the **known** entries in the utility matrix
   * to achieve minimal RMSE, **SVD** is used
-## Measuring Recommendation System Performance
-* Discounted Cumulative Gain (DCG)
-  * measure of ranking quality
-  * measures usefulness, or gain of a document based on its position in the result list
+
+### Singular Matrix
+![image](https://user-images.githubusercontent.com/42960718/57504041-d1144580-732d-11e9-9152-3a46d12e306e.png)
+* X = utility matrix
+* U = relationship b/t users and **latent factors**
+* S = diagonal matrix describing the **strength** of each latent factor
+* VT (V Transpose) = **similarity** b/t items and latent factors
+* **latent factor** = a property/concept that a user or an item have
+  * music: genre that the music belongs to
+* **SVD decreases the dimension of the utility matrix by extracting its latent factors**
+* mapping each user and each item into a **latent space** with dimension **r**
+  * helps us to understand the relationship b/t users and items → become directly comparable after SVD
+  
+![image](https://user-images.githubusercontent.com/42960718/57504238-abd40700-732e-11e9-87e6-24b4e4a24bf3.png)
+### Minimizing RMSE → Dimensionality Reduction
+![image](https://user-images.githubusercontent.com/42960718/57504327-fb1a3780-732e-11e9-866e-0b979f5076aa.png)
+
+* has the minimal reconstruction for Sum of Square Error (SSE) → commonly used in dimensionality reduction
+* **RMSE and SSE are monotonically related** → lower the SSE, lower the RMSE
+  * since SVD minimizes SSE → can conclude that it also minimizes RMSE (optimization)
+```python
+from scipy.sparse import csc_matrix
+from scipy.sparse.linalg import svds
+A = csc_matrix([[1, 0, 0], [5, 0, 2], [0, -1, 0], [0, 0, 3]], dtype=float)
+u, s vt = svds(A, k=2) # k is the number of factors
+s
+```
+```python
+# result
+array([2.75193379, 5.6059665])
+```
+**pro** : SVD handles scalability and sparsity posed by CF
+**con** : there almost no explanation how the recommendation result have came out (can't draw why such item was recommended to the user) → what if the users want to know why such item was recommended to them?
+
   
   
   
