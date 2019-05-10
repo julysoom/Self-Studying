@@ -26,8 +26,13 @@ url
 * *M* = mean of total ratings
 * *bu* = a conditioned rating based on a user (based on user A)
 * *bi* = a conditioned rating based on a item (based on item A)
+* goal of base line model is to minimize the error function
+![image](https://user-images.githubusercontent.com/42960718/57532256-3f7cf600-7376-11e9-870c-5de3593b591c.png)
+* *Rtrain* = dataset for training
+* a regularization can be added to avoid overfitting like the equation below
 
 
+![image](https://user-images.githubusercontent.com/42960718/57533879-b962ae80-7379-11e9-80f2-458aec35e5d4.png)
 ### User-based k-Nearest Neighbors
 * compute similarity of users by finding **k** most similar users to user a
 * recommend item that user a has **not** seen
@@ -44,7 +49,30 @@ url
 * training error can be obtained by **comparing with non-empty ratings to predicted ratings**
 * also can **regularize** training loss by adding a **penalty term** to keep values of latent vectors low
 ### SGD v. ALS
+* two methods are provided by the `surprise` package
 #### Stochastic Gradient Descent (SGD)
 * most popluar training algorithm that **minimizes** loss by gradient updates of both columns and rows of *p* and *q* matrices
 * updates each parameter independently
 * derive the loss fuction with respect to each parameter
+* parameters
+  * `reg` : regulazation weight (default = .02)
+  * `learning_rate` : optimization step size (default = .005)
+  * `n_epochs` : number of optimization repetition (default = 20)
+#### Alternating Least Squares (ALS)
+* fix P and optimize Q
+* convex problem when one of the laten matrices is fixed
+* easy to parellize
+* parameters
+  * `reg_i` : regulization weight on items (default = 10)
+  * `reg_u` : regulization weight on users (default = 15)
+  * `n_epochs` : number of optimization repetition (default = 10)
+  
+#### Association Rules
+
+![image](https://user-images.githubusercontent.com/42960718/57536971-47419800-7380-11e9-959f-432d4f7326a1.png)
+
+
+* items that are frequenly consumed together are connected with an edge in the graph
+* clusters of best sellers are densely connected items that almost everyone interacted with
+  * small separted clusters → niche content
+
