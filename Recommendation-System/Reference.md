@@ -8,4 +8,5 @@ References to read and organize.
 * [Steeve Huang Introduction to Recommender System](https://hackernoon.com/introduction-to-recommender-system-part-1-collaborative-filtering-singular-value-decomposition-44c9659c5e75)
   * [Self-note](https://github.com/julysoom/Self-Studying/tree/master/Recommendation-System/Introduction-to-Recommender-System)
 * [추천시스템 PR 시리즈](https://bahnsville.tistory.com/894)
+* [데이터 사이언스 스쿨 - 추천시스템](https://datascienceschool.net/view-notebook/fcd3550f11ac4537acec8d18136f2066/)
 
