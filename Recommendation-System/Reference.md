@@ -1,7 +1,6 @@
 # Reference
 References to read and organize.
 ## Recommendation System
-### Definition and ML for Recommendation System 
 * [Algorithm & Coldstart for Recommender System](https://medium.com/recombee-blog/machine-learning-for-recommender-systems-part-1-algorithms-evaluation-and-cold-start-6f696683d0ed)
   * [Self-note](https://github.com/julysoom/Self-Studying/tree/master/Recommendation-System/Machine-Learning-for-Recommender-Systems)
 * [Deep Recommendation & Sequence Prediction](https://medium.com/recombee-blog/machine-learning-for-recommender-systems-part-2-deep-recommendation-sequence-prediction-automl-f134bc79d66b)
