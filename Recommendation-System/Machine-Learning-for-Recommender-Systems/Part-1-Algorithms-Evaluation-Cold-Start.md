@@ -2,6 +2,7 @@
 url
 * https://medium.com/recombee-blog/machine-learning-for-recommender-systems-part-1-algorithms-evaluation-and-cold-start-6f696683d0ed
 * https://datascienceschool.net/view-notebook/fcd3550f11ac4537acec8d18136f2066/
+* https://jessesw.com/Rec-System/ 
 ## Algorithms
 * **Recommendation System** = software systems providing **suggestions** for users utilizing **historical interactions** and **attributes** of items/users
 * modern recommenders combine both approaches (CB, CF)
@@ -48,6 +49,20 @@ url
 * multiply corresponding row and column to predict the rating of item by the user
 * training error can be obtained by **comparing with non-empty ratings to predicted ratings**
 * also can **regularize** training loss by adding a **penalty term** to keep values of latent vectors low
+### More about Matrix Factorization
+![image](https://user-images.githubusercontent.com/42960718/57570453-11161e00-743d-11e9-918b-1ff372c6be03.png)
+* *R* = original ratings matrix (size M * N)
+* *M* = number of users
+* *N* = number of items
+* the matrix is quite sparse here since most users **only interact with few items each** 
+* we can **factorize** this matrix into **two** separate smaller matrices
+  * M * K = latent user feature vectors for each user *U*
+  * K * N = latent item feature vectors for each item *V*
+  * **multiplying** these two feature matrices together **approximates the orignal matrix**
+    * now we have two matrices that are **dense** and includes a number of **latent features** *K* for each of our items and users
+* to solve for *U* and *V*, we could either use **SVD** or **ALS**
+  * **SVD** requires inverting a potentially very large matrix to solve the factorization more precisely → computationally expensive
+  * or use ALS to approximate
 ### SGD v. ALS
 * two methods are provided by the `surprise` package
 #### Stochastic Gradient Descent (SGD)
@@ -60,7 +75,13 @@ url
   * `n_epochs` : number of optimization repetition (default = 20)
 #### Alternating Least Squares (ALS)
 * fix P and optimize Q
-* convex problem when one of the laten matrices is fixed
+* **pro** : only need to solve **one feature vector at a time** → can be run parallel
+  * to do so, randomly initialize *U* and solve for *V*
+  * then go back and solve for *U* using our solution for *V*
+  * keep iterating back and forth unetil we get a **convergence that approximates *R* as best as we can**
+  * after this process, simply take the **dot product of *U* and *V*** to see what the **predicted rating** would be for a specific user/item interaction **even if there was no prior interaction**
+  
+* convex problem when one of the latent matrices is fixed
 * easy to parellize
 * parameters
   * `reg_i` : regulization weight on items (default = 10)
