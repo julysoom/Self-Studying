@@ -14,4 +14,5 @@ References to read and organize.
 * [데이터 사이언스 스쿨 - 추천시스템](https://datascienceschool.net/view-notebook/fcd3550f11ac4537acec8d18136f2066/)
 ### Papers
 * [Collaborative Filtering for Implicit Datasets](http://yifanhu.net/PUB/cf.pdf)
+* [Item2Vec: Neural Item Embedding for CF](https://arxiv.org/ftp/arxiv/papers/1603/1603.04259.pdf)
 
