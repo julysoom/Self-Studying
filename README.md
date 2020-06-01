@@ -5,4 +5,3 @@ Organizing notes by reading papers and references.
 ## MySQL
 * [MySQL](https://www.inflearn.com/course/mysql-%EA%B0%95%EC%A2%8C#)
 ## AI & Machine Learning
-* [인공지능 및 기계학습 개론 I]
